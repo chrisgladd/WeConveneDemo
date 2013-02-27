@@ -9,11 +9,18 @@
 html, body {
     width: 100%;
     height: 100%;
+    position: absolute;
+    top: 0;
 }
 
 body {
 	background-color: $base; // Old browsers
 	@include background-image(radial-gradient(center, ellipse cover, $base 0%, $comp1 100%));
+}
+
+a {
+    color: #333;
+    text-decoration: none;
 }
 
 /**
@@ -29,69 +36,265 @@ body {
 		
 	border: #AAA 1px solid;
 	@include border-radius(5px);
+
+	text-align: center;
+	font-family: Helvetica;
+	font-weight: 900;
+	font-size: 1.3em;
+
+	cursor: pointer;
+}
+
+/**
+* Logo
+*/
+.LogoDiv {
+    width: 100%;
+    max-width: 650px;
+    height: 100%;
+
+    position: relative;
+    margin: 0 auto;
+}
+
+.LogoStart {
+    .LogoLeft {
+        left: -10%;
+    }
+    .LogoCenter {
+        top: -10%;
+    }
+    .LogoRight {
+        left: 10%;
+    }
+}
+
+.LogoAnim {
+
+    .LogoPiece {
+        left: 0%;
+        top: 0%;
+        @include setupTransition(left, 1s, ease-out);
+    }
+    .LogoCenter {
+        @include setupTransition(top, 1s, ease-out);
+    }
+}
+
+.LogoPiece {
+    width: 40%;
+    height: 100%;
+
+    position: relative;
+    float: left;
+}
+
+.LogoLeft {
+	background: transparent url('../img/logo-con.png') no-repeat center center;
+    @include background-size;
+}
+
+.LogoCenter {
+    width: 20%;
+	background: transparent url('../img/logo-wev.png') no-repeat center center;
+    @include background-size;
+}
+
+.LogoRight {
+	background: transparent url('../img/logo-ene.png') no-repeat center center;
+    @include background-size;
+}
+
+/**
+* Logout Style
+*/
+.LogoutDiv {
+    width: 80px;
+    height: 40px;
+
+    margin: 10px 15px 0 0;
+    
+    float: right;
+
+    border: none;
+    text-align: center;
+
+    span {
+        position: relative;
+        top: 20%;
+
+        color: #333;
+        font-size: .8em;
+        font-weight: 900;
+        font-family: Helvetica;
+    }
+}
+
+/**
+* User Top Bar Style
+*/
+.UserDiv {
+    width: auto;/*250px;*/
+    height: 50px;
+    position: relative;
+
+    float: right;
+
+    margin: 5px 5px 0 0;
+    z-index: 99;
+
+    img {
+        width: 50px;
+        height: 50px;
+        float: right;
+
+        @include border-radius(24px);
+
+        background: transparent url('../img/me.jpg') no-repeat center center;
+        @include background-size(cover);
+
+        border: none;
+    }
+
+    cursor: pointer;
+}
+
+.UserName {
+    font-size: 1.5em;
+    font-weight: 900;
+    color: #111;
+
+    float: right;
+    position: relative;
+    top: 15px;
+
+    margin-left: 8px;
+}
+
+.OpenMenu {
+    background-color: #DDD;
+    height: 200px;
+
+    padding: 10px;
+
+    border: 2px solid $comp2;
+    @include border-radius(15px);
+    z-index: 99;
+}
+
+.UserMenu {
+    width: 100%;
+    height: 100%;
+    
+    position: absolute;
+    top: 55px;
+    right: 0px;
+
+    text-align: center
+}
+
+.UserMenuItem {
+    width: 90%;
+    height: 40px;
+
+    margin: 10px 5%;
+
+    background-color: $comp1;
+
+    border: 1px solid $comp2;
+    border-top: none;
+
+    @include border-bottom-left-radius(10px);
+    @include border-bottom-right-radius(10px);
+
+    span {
+        position: relative;
+        top: 20%;
+
+        font-size: 1.3em;
+        font-family: Helvetica;
+        font-weight: 900;
+        color: #DDD;
+    }
+}
+
+/**
+* Item Lists
+*/
+
+.ItemDivider {
+    width: 100%;
+    height: 2px;
+
+    background-color: #222;
+	@include background-image(linear-gradient(left, 
+		#222 0%,
+		#AAA 50%,
+		/*#1f8f0c 51%,*/
+		#222 100%));
+}
+
+
+/**
+* Calendar Style
+*/
+
+.CalHead {
+	@include background-image(linear-gradient(top, 
+		$base 0%,
+		$comp1 50%,
+		$comp2 51%,
+		$comp3 100%));
+
+	border-right: 2px solid $comp0;
 }
 
 /**
 * Top View
 */
 
-.TopView, .Panel {
+.TopView, .View {
     width: 100%;
     height: 100%;
 	position: relative;
 }
 
+.TopView {
+    position: absolute;
+    top: 0px;
+}
+
 /**
 * Splash Panel
 */
+.SplashLogo {
+    width: 90%;
+    height: 100%;
 
-.SplashImg {
-	position: absolute;
-	
-	@include center(60%, 40%);
-	
-	@media screen and (orientation: landscape) {
-		@include center(40%, 60%);
+    @include mobile-portrait {
+		width: 100%;
+		height: 100%;
 	}
-	
-	background: transparent url('../img/SmallLogo.png') no-repeat center center;
-	@include background-size(contain);
-	
-	@include Icon(9px, 15px);
+
+	@include mobile-landscape {
+		width: 100%;
+		height: 100%;
+	}
+
+	@include tablet-portrait {
+		width: 100%;
+		height: 100%;
+	}
 }
 
 /**
-* Login Panel
+* Import Styles For Each View
 */
-
-.LoginDiv {}
-
-#LoginForm {
-	position: absolute;
-	
-	@include center(40%, 90%);
-	@media screen and (orientation: landscape) {
-		@include center(50%, 70%);
-	}
-	
-	input {
-		color: #222;
-		font-size: 1.3em;
-		font-weight: 900;
-		font-family: 'Helvetica';
-	}
-	
-	/*@include ColorBox;*/
-	@include Icon(2px, 7px);
-}
-
-.LoginText {
-	width: 90%;
-	height: 2em;
-	
-	margin: 5%;
-}
-
-.LoginBtn {
-	@include sizePos(50%, 20%, absolute, auto, auto, 5%, 5%);
-}
+@import "login";
+@import "home";
+@import "meeting";
+@import "detail";
+@import "client";
+@import "clientDetail";
+@import "data";
+@import "settings";

@@ -1,0 +1,51 @@
+<div ng-class="{inDetail: detailMode}" class="ClientView View">
+    <a href="#/home">
+        <div class="HomeLogo LogoDiv">
+            <div class="LogoLeft LogoPiece"></div>
+            <div class="LogoCenter LogoPiece"></div>
+            <div class="LogoRight LogoPiece"></div>
+        </div>
+    </a>
+    <div class="ClientList">
+        <div class="MeetingSearchDiv">
+            <input type="search" placeholder="Search..." ng-model="query"></input>
+        </div>
+        <ul class="ClientListUL">
+            <li ng-repeat="client in clients | filter:query | orderBy:name" class="ClientUser UserDiv">
+                <a href="#/client/{{client.id}}">
+                    <img ng-src="{{client.imageURL}}"></img>
+                    <div class="ClientUserName UserName">{{client.name}}</div>
+                    <div class="ClientUserCompany UserCompany">{{client.company}}</div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="ClientDetails">
+        <h1>Client Details {{clientTitle}}</h1>
+        <form id="ClientForm">
+            <label>ID:
+                <input type="text" disabled="true" ng-model="client.id"></input>
+            </label>
+            <label>Name:
+                <input type="text" ng-model="client.name"></input>
+            </label>
+            <label>Company:
+                <input type="text" ng-model="client.company"></input>
+            </label>
+            <label class="ClientDesc">Description:
+                <textarea ng-model="client.desc"></textarea>
+            </label>
+            <label>Start:
+                <input type="text" ng-model="client.start"></input>
+            </label>
+            <label>End:
+                <input type="text" ng-model="client.end"></input>
+            </label>
+            <label>Image:
+                <input type="text" ng-model="client.imageURL"></input>
+            </label>
+            <input id="ClientSave" class="SaveBtn GreenBtn" type="submit" value="Save" ng-click="save()">
+            <input id="ClientCancel" class="SaveBtn GreenBtn" type="submit" value="Cancel" ng-click="cancel()">
+        </form>
+    </div>
+</div>

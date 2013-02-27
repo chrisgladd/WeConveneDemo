@@ -1,0 +1,46 @@
+<div class="HomeView View">
+    <a href="#/home">
+        <div class="HomeLogo LogoDiv">
+            <div class="LogoLeft LogoPiece"></div>
+            <div class="LogoCenter LogoPiece"></div>
+            <div class="LogoRight LogoPiece"></div>
+        </div>
+    </a>
+    <div class="HomeBtnDiv">
+        <a href="#/meeting">
+            <div class="HomeMeetingBtn HomeBtn GreenBtn">
+            <span>Meetings</span> 
+        </div>
+        </a>
+        <a href="#/client">
+            <div class="HomeClientBtn HomeBtn GreenBtn">
+                <span>Clients</span> 
+            </div>
+        </a>
+        <a href="#/data">
+            <div class="HomeChartBtn HomeBtn GreenBtn">
+                <span>Data</span> 
+            </div>
+        </a>
+        <a href="#/settings">
+            <div class="HomeSettingsBtn HomeBtn GreenBtn">
+                <span>Settings</span> 
+            </div>
+        </a>
+    </div>
+    <div class="HomeActivityTop">
+        <h1>Recent Activity</h1>
+        <ul class="HomeActivityList">
+            <li ng-repeat="act in activities | filter:query | orderBy:orderProp" class="HomeActivity">
+                <a href="#/{{act.type}}/{{act.id}}">
+                    <img ng-src="{{act.imageURL}}"></img>
+                </a>
+                <a href="#/{{act.type}}/{{act.id}}">
+                    <span>{{act.title}}</span>
+                </a>
+                <p>{{act.desc}}</p>
+            </li>
+            <li class="HomeActivityBuffer"></li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+<div class="MeetingView View">
+    <a href="#/home">
+        <div class="HomeLogo LogoDiv">
+            <div class="LogoLeft LogoPiece"></div>
+            <div class="LogoCenter LogoPiece"></div>
+            <div class="LogoRight LogoPiece"></div>
+        </div>
+    </a>
+    <div class="MeetingListTop">
+        <div class="MeetingSearchDiv">
+            <input type="search" placeholder="Search..." ng-model="query"></input>
+        </div>
+        <ul class="MeetingListUL">
+            <div class="ItemDivider"></div>
+            <li ng-repeat="meet in meetings | filter:query | orderBy:appt" class="MeetingListItem">
+                <a href="#/{{meet.type}}/{{meet.id}}">
+                    <img ng-src="{{meet.imageURL}}"></img>
+                </a>
+                <a href="#/meeting/{{meet.id}}">
+                    <div class="MeetingLI_Title">
+                        {{meet.title}}
+                    </div>
+                    <div class="MeetingLI_Time">
+                        {{meet.appt}}
+                    </div>
+                </a>
+                <p>{{meet.desc}}</p>
+                <div class="ItemDivider"></div>
+            </li>
+        </ul>
+    </div>
+    <div class="MeetingCalendarTop">
+        <div class="MeetingCal">
+            <ul class="MeetingCalHeader">
+                <li ng-repeat="dow in daysofweek" class="MeetingCalHeaderItem CalHead">
+                    <span>{{dow}}</span>
+                </li>
+            </ul>
+            <ul class="MeetingCalUL">
+                <li ng-repeat="day in days" class="CalDay">
+                    <div class="CalNumber">
+                        <span>{{day.number}}</span>
+                    </div>
+                    <div class="CalMeets">
+                        <span>{{day.meetings.length}}</span>
+                    </div>
+                    <div ng-repeat="meet in day.meetings | filter:query | orderBy:orderProp" class="CalMeeting">
+                        <a href="#/meeting/{{meet.id}}">
+                            <span>{{meet.title}}</span>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

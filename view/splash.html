@@ -1,3 +1,7 @@
-<div ng-click="skip()" class="SplashDiv Panel">
-	<div class="SplashImg"></div>
+<div ng-click="skip()" class="SplashView View">
+    <div ng-class="{ LogoAnim: doAnim, LogoStart: !doAnim }" class="SplashLogo LogoDiv">
+        <div class="LogoLeft LogoPiece"></div>
+        <div class="LogoCenter LogoPiece"></div>
+        <div class="LogoRight LogoPiece"></div>
+    </div>
 </div>

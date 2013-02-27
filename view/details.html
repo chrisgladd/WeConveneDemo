@@ -1,0 +1,61 @@
+<div class="DetailView View">
+    <a href="#/home">
+        <div class="DetailLogo HomeLogo LogoDiv">
+            <div class="LogoLeft LogoPiece"></div>
+            <div class="LogoCenter LogoPiece"></div>
+            <div class="LogoRight LogoPiece"></div>
+        </div>
+    </a>
+    <div class="DetailsDiv">
+        <h1>Meeting Details</h1>
+        <form id="DetailsForm">
+            <label>ID:
+                <input type="text" disabled="true" ng-model="meeting.id"></input>
+            </label>
+            <label>Title:
+                <input type="text" ng-model="meeting.title"></input>
+            </label>
+            <label class="DetailDesc">Description:
+                <textarea ng-model="meeting.desc"></textarea>
+            </label>
+            <label>Start:
+                <input type="text" ng-model="meeting.start"></input>
+            </label>
+            <label>End:
+                <input type="text" ng-model="meeting.end"></input>
+            </label>
+            <label>Image:
+                <input type="text" ng-model="meeting.imageURL"></input>
+            </label>
+            <input id="DetailsSave" class="SaveBtn GreenBtn" type="submit" value="Save" ng-click="save()">
+            <input id="DetailCancel" class="SaveBtn GreenBtn" type="submit" value="Cancel" ng-click="cancel()">
+        </form>
+    </div>
+    <div class="DetailOwners">
+        <h1>Owners</h1>
+        <div ng-repeat="owner in meeting.owners" class="DetailUser UserDiv">
+            <a href="#/{{owner.type}}/{{owner.id}}">
+                <img ng-src="{{owner.imageURL}}"></img>
+                <div class="UserName">{{owner.name}}</div>
+            </a>
+        </div>
+    </div>
+    <div class="DetailColleagues">
+        <h1>Colleagues</h1>
+        <div ng-repeat="coll in meeting.colleagues" class="DetailUser UserDiv">
+            <a href="#/{{coll.type}}/{{coll.id}}">
+                <img ng-src="{{coll.imageURL}}"></img>
+                <div class="UserName">{{coll.name}}</div>
+            </a>
+        </div>
+    </div>
+    <div class="DetailClients">
+        <h1>Clients</h1>
+        <div ng-repeat="client in meeting.clients" class="DetailUser UserDiv">
+            <a href="#/client/{{client.id}}">
+                <img ng-src="{{client.imageURL}}"></img>
+                <div class="UserName">{{client.name}}</div>
+            </a>
+        </div>
+    </div>
+</div>

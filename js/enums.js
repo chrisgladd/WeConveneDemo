@@ -1,15 +1,14 @@
-﻿Brush = {
-    Marker : 0,
-    Radial : 1
-};
-
-Background = {
-    Color : 0,
-    Gradient : 1,
-    Image : 2
-};
-
-Gradient = {
-    Linear : 0,
-    Radial : 0
+﻿Month = {
+    January : 1,
+    February : 2,
+    March : 3,
+    April : 4,
+    May : 5,
+    June : 6,
+    July : 7,
+    August : 8,
+    September: 9,
+    October : 10,
+    November : 11,
+    December : 12
 };

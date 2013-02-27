@@ -141,13 +141,23 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 /*  Basic Gradient  */
 /*  Icon Border  */
 /*  Text Colors  */
+/*  Media Query Variables  */
+/**  
+* Animation Mixins  
+* $property: The property to animate
+* $milli: milliseconds for the animation to last
+* $easing: easing function for the animation
+* $delay: delay for the animation
+**/
 /* line 9, ../sass/screen.scss */
 html, body {
   width: 100%;
   height: 100%;
+  position: absolute;
+  top: 0;
 }
 
-/* line 14, ../sass/screen.scss */
+/* line 16, ../sass/screen.scss */
 body {
   background-color: #4a91bb;
   background-image: -webkit-gradient(radial, 50%, 0, 50%, 100, color-stop(0%, #4a91bb), color-stop(100%, #182e3b));
@@ -157,10 +167,16 @@ body {
   background-image: radial-gradient(center, ellipse cover, #4a91bb 0%, #182e3b 100%);
 }
 
+/* line 21, ../sass/screen.scss */
+a {
+  color: #333;
+  text-decoration: none;
+}
+
 /**
 * Buttons
 */
-/* line 22, ../sass/screen.scss */
+/* line 29, ../sass/screen.scss */
 .GreenBtn {
   background-color: black;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #68be32), color-stop(50%, #3e9822), color-stop(51%, #1f8f0c), color-stop(100%, #45a525));
@@ -174,119 +190,1207 @@ body {
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
   border-radius: 5px;
+  text-align: center;
+  font-family: Helvetica;
+  font-weight: 900;
+  font-size: 1.3em;
+  cursor: pointer;
 }
 
 /**
-* Top View
+* Logo
 */
-/* line 38, ../sass/screen.scss */
-.TopView, .Panel {
+/* line 51, ../sass/screen.scss */
+.LogoDiv {
   width: 100%;
+  max-width: 650px;
   height: 100%;
   position: relative;
+  margin: 0 auto;
+}
+
+/* line 61, ../sass/screen.scss */
+.LogoStart .LogoLeft {
+  left: -10%;
+}
+/* line 64, ../sass/screen.scss */
+.LogoStart .LogoCenter {
+  top: -10%;
+}
+/* line 67, ../sass/screen.scss */
+.LogoStart .LogoRight {
+  left: 10%;
+}
+
+/* line 74, ../sass/screen.scss */
+.LogoAnim .LogoPiece {
+  left: 0%;
+  top: 0%;
+  -webkit-transition-property: left;
+  -moz-transition-property: left;
+  -o-transition-property: left;
+  transition-property: left;
+  -webkit-transition-duration: 1s;
+  -moz-transition-duration: 1s;
+  -o-transition-duration: 1s;
+  transition-duration: 1s;
+  -webkit-transition-timing-function: ease-out;
+  -moz-transition-timing-function: ease-out;
+  -o-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+  -webkit-transition-delay: 0s;
+  -moz-transition-delay: 0s;
+  -o-transition-delay: 0s;
+  transition-delay: 0s;
+}
+/* line 79, ../sass/screen.scss */
+.LogoAnim .LogoCenter {
+  -webkit-transition-property: top;
+  -moz-transition-property: top;
+  -o-transition-property: top;
+  transition-property: top;
+  -webkit-transition-duration: 1s;
+  -moz-transition-duration: 1s;
+  -o-transition-duration: 1s;
+  transition-duration: 1s;
+  -webkit-transition-timing-function: ease-out;
+  -moz-transition-timing-function: ease-out;
+  -o-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+  -webkit-transition-delay: 0s;
+  -moz-transition-delay: 0s;
+  -o-transition-delay: 0s;
+  transition-delay: 0s;
+}
+
+/* line 84, ../sass/screen.scss */
+.LogoPiece {
+  width: 40%;
+  height: 100%;
+  position: relative;
+  float: left;
+}
+
+/* line 92, ../sass/screen.scss */
+.LogoLeft {
+  background: transparent url("../img/logo-con.png") no-repeat center center;
+  -webkit-background-size: 100% auto;
+  -moz-background-size: 100% auto;
+  -o-background-size: 100% auto;
+  background-size: 100% auto;
+}
+
+/* line 97, ../sass/screen.scss */
+.LogoCenter {
+  width: 20%;
+  background: transparent url("../img/logo-wev.png") no-repeat center center;
+  -webkit-background-size: 100% auto;
+  -moz-background-size: 100% auto;
+  -o-background-size: 100% auto;
+  background-size: 100% auto;
+}
+
+/* line 103, ../sass/screen.scss */
+.LogoRight {
+  background: transparent url("../img/logo-ene.png") no-repeat center center;
+  -webkit-background-size: 100% auto;
+  -moz-background-size: 100% auto;
+  -o-background-size: 100% auto;
+  background-size: 100% auto;
 }
 
 /**
-* Splash Panel
+* Logout Style
 */
-/* line 48, ../sass/screen.scss */
-.SplashImg {
-  position: absolute;
-  width: 60%;
-  height: 40%;
-  top: 30%;
-  left: 20%;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  background: transparent url("../img/SmallLogo.png") no-repeat center center;
-  -webkit-background-size: contain;
-  -moz-background-size: contain;
-  -o-background-size: contain;
-  background-size: contain;
-  background-color: #ffecc8;
-  border: 9px #291b00 solid;
+/* line 111, ../sass/screen.scss */
+.LogoutDiv {
+  width: 80px;
+  height: 40px;
+  margin: 10px 15px 0 0;
+  float: right;
+  border: none;
+  text-align: center;
+}
+/* line 122, ../sass/screen.scss */
+.LogoutDiv span {
+  position: relative;
+  top: 20%;
+  color: #333;
+  font-size: .8em;
+  font-weight: 900;
+  font-family: Helvetica;
+}
+
+/**
+* User Top Bar Style
+*/
+/* line 136, ../sass/screen.scss */
+.UserDiv {
+  width: auto;
+  /*250px;*/
+  height: 50px;
+  position: relative;
+  float: right;
+  margin: 5px 5px 0 0;
+  z-index: 99;
+  cursor: pointer;
+}
+/* line 146, ../sass/screen.scss */
+.UserDiv img {
+  width: 50px;
+  height: 50px;
+  float: right;
+  -webkit-border-radius: 24px;
+  -moz-border-radius: 24px;
+  -ms-border-radius: 24px;
+  -o-border-radius: 24px;
+  border-radius: 24px;
+  background: transparent url("../img/me.jpg") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  border: none;
+}
+
+/* line 162, ../sass/screen.scss */
+.UserName {
+  font-size: 1.5em;
+  font-weight: 900;
+  color: #111;
+  float: right;
+  position: relative;
+  top: 15px;
+  margin-left: 8px;
+}
+
+/* line 174, ../sass/screen.scss */
+.OpenMenu {
+  background-color: #DDD;
+  height: 200px;
+  padding: 10px;
+  border: 2px solid #29353b;
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
   -ms-border-radius: 15px;
   -o-border-radius: 15px;
   border-radius: 15px;
-  -webkit-box-shadow: 2px 2px 3px #666666;
-  -moz-box-shadow: 2px 2px 3px #666666;
-  box-shadow: 2px 2px 3px #666666;
+  z-index: 99;
 }
-@media screen and (orientation: landscape) {
-  /* line 48, ../sass/screen.scss */
-  .SplashImg {
-    width: 40%;
-    height: 60%;
-    top: 20%;
-    left: 30%;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+
+/* line 185, ../sass/screen.scss */
+.UserMenu {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 55px;
+  right: 0px;
+  text-align: center;
+}
+
+/* line 196, ../sass/screen.scss */
+.UserMenuItem {
+  width: 90%;
+  height: 40px;
+  margin: 10px 5%;
+  background-color: #182e3b;
+  border: 1px solid #29353b;
+  border-top: none;
+  -moz-border-radius-bottomleft: 10px;
+  -webkit-border-bottom-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  -moz-border-radius-bottomright: 10px;
+  -webkit-border-bottom-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+/* line 210, ../sass/screen.scss */
+.UserMenuItem span {
+  position: relative;
+  top: 20%;
+  font-size: 1.3em;
+  font-family: Helvetica;
+  font-weight: 900;
+  color: #DDD;
+}
+
+/**
+* Item Lists
+*/
+/* line 225, ../sass/screen.scss */
+.ItemDivider {
+  width: 100%;
+  height: 2px;
+  background-color: #222;
+  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #222222), color-stop(50%, #aaaaaa), color-stop(100%, #222222));
+  background-image: -webkit-linear-gradient(left, #222222 0%, #aaaaaa 50%, #222222 100%);
+  background-image: -moz-linear-gradient(left, #222222 0%, #aaaaaa 50%, #222222 100%);
+  background-image: -o-linear-gradient(left, #222222 0%, #aaaaaa 50%, #222222 100%);
+  background-image: linear-gradient(left, #222222 0%, #aaaaaa 50%, #222222 100%);
+}
+
+/**
+* Calendar Style
+*/
+/* line 242, ../sass/screen.scss */
+.CalHead {
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #4a91bb), color-stop(50%, #182e3b), color-stop(51%, #29353b), color-stop(100%, #366988));
+  background-image: -webkit-linear-gradient(top, #4a91bb 0%, #182e3b 50%, #29353b 51%, #366988 100%);
+  background-image: -moz-linear-gradient(top, #4a91bb 0%, #182e3b 50%, #29353b 51%, #366988 100%);
+  background-image: -o-linear-gradient(top, #4a91bb 0%, #182e3b 50%, #29353b 51%, #366988 100%);
+  background-image: linear-gradient(top, #4a91bb 0%, #182e3b 50%, #29353b 51%, #366988 100%);
+  border-right: 2px solid #8ab0c6;
+}
+
+/**
+* Top View
+*/
+/* line 256, ../sass/screen.scss */
+.TopView, .View {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* line 262, ../sass/screen.scss */
+.TopView {
+  position: absolute;
+  top: 0px;
+}
+
+/**
+* Splash Panel
+*/
+/* line 270, ../sass/screen.scss */
+.SplashLogo {
+  width: 90%;
+  height: 100%;
+}
+@media (max-width: 320px) {
+  /* line 270, ../sass/screen.scss */
+  .SplashLogo {
+    width: 100%;
+    height: 100%;
+  }
+}
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+  /* line 270, ../sass/screen.scss */
+  .SplashLogo {
+    width: 100%;
+    height: 100%;
+  }
+}
+@media only screen and (min-width: 481px) and (max-width: 1023px) {
+  /* line 270, ../sass/screen.scss */
+  .SplashLogo {
+    width: 100%;
+    height: 100%;
   }
 }
 
 /**
+* Import Styles For Each View
+*/
+/**
 * Login Panel
 */
-/* line 69, ../sass/screen.scss */
-#LoginForm {
-  position: absolute;
-  width: 40%;
-  height: 90%;
-  top: 5%;
-  left: 30%;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  /*@include ColorBox;*/
-  background-color: #ffecc8;
-  border: 2px #291b00 solid;
-  -webkit-border-radius: 7px;
-  -moz-border-radius: 7px;
-  -ms-border-radius: 7px;
-  -o-border-radius: 7px;
-  border-radius: 7px;
-  -webkit-box-shadow: 2px 2px 3px #666666;
-  -moz-box-shadow: 2px 2px 3px #666666;
-  box-shadow: 2px 2px 3px #666666;
+/* line 5, ../sass/_login.scss */
+.LoginLogo {
+  width: 20%;
+  height: 20%;
 }
-@media screen and (orientation: landscape) {
-  /* line 69, ../sass/screen.scss */
-  #LoginForm {
-    width: 50%;
-    height: 70%;
-    top: 15%;
-    left: 25%;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+@media (max-width: 1025px) {
+  /* line 5, ../sass/_login.scss */
+  .LoginLogo {
+    width: 80%;
+    height: 20%;
   }
 }
-/* line 77, ../sass/screen.scss */
-#LoginForm input {
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+  /* line 5, ../sass/_login.scss */
+  .LoginLogo {
+    margin: 2% auto 0 auto;
+  }
+}
+
+/* line 19, ../sass/_login.scss */
+#LoginForm {
+  width: 30%;
+  height: 60%;
+  position: relative;
+  top: 5%;
+  margin: 0 auto;
+}
+@media (max-width: 1025px) {
+  /* line 19, ../sass/_login.scss */
+  #LoginForm {
+    width: 80%;
+    top: 0;
+  }
+}
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+  /* line 19, ../sass/_login.scss */
+  #LoginForm {
+    height: 75%;
+  }
+}
+/* line 34, ../sass/_login.scss */
+#LoginForm input, #LoginForm label {
   color: #222;
   font-size: 1.3em;
   font-weight: 900;
   font-family: 'Helvetica';
 }
 
-/* line 88, ../sass/screen.scss */
+/* line 44, ../sass/_login.scss */
 .LoginText {
   width: 90%;
   height: 2em;
   margin: 5%;
+  padding: 0;
+}
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+  /* line 44, ../sass/_login.scss */
+  .LoginText {
+    height: 1.4em;
+    margin: 2% 5%;
+  }
 }
 
-/* line 95, ../sass/screen.scss */
+/* line 57, ../sass/_login.scss */
 .LoginBtn {
+  width: 100%;
+  height: 15%;
+  position: relative;
+  padding: 0;
+  margin: 10% 0 0 0;
+  border: none;
+  font-size: 1.6em !important;
+}
+@media (max-width: 1025px) {
+  /* line 57, ../sass/_login.scss */
+  .LoginBtn {
+    height: 20%;
+  }
+}
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+  /* line 57, ../sass/_login.scss */
+  .LoginBtn {
+    margin: 5% 0 0 0;
+  }
+}
+
+/**
+* Style for Home View
+**/
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+  /* line 5, ../sass/_home.scss */
+  .HomeView {
+    height: 200%;
+  }
+}
+
+/* line 11, ../sass/_home.scss */
+.HomeLogo {
+  width: 15%;
+  height: 30px;
+  margin: 10px 5px 20px 5px;
+}
+@media (max-width: 320px) {
+  /* line 11, ../sass/_home.scss */
+  .HomeLogo {
+    width: 30%;
+  }
+}
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+  /* line 11, ../sass/_home.scss */
+  .HomeLogo {
+    width: 40%;
+  }
+}
+@media only screen and (min-width: 481px) and (max-width: 1023px) {
+  /* line 11, ../sass/_home.scss */
+  .HomeLogo {
+    width: 40%;
+  }
+}
+
+/* line 29, ../sass/_home.scss */
+.HomeActivityTop {
   width: 50%;
+  height: 90%;
+  margin: 0% 0% 0% 6%;
+  float: left;
+  text-align: center;
+}
+/* line 39, ../sass/_home.scss */
+.HomeActivityTop h1 {
+  font-size: 2.5em;
+  font-weight: 900;
+  font-family: Helvetica;
+  margin: 0 0 5% 0;
+}
+@media (max-width: 320px) {
+  /* line 29, ../sass/_home.scss */
+  .HomeActivityTop {
+    width: 96%;
+    height: 100%;
+    margin: 0 2%;
+    float: none;
+  }
+}
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+  /* line 29, ../sass/_home.scss */
+  .HomeActivityTop {
+    width: 96%;
+    height: 100%;
+    margin: 3% 2% 0 2%;
+  }
+}
+@media only screen and (min-width: 481px) and (max-width: 1023px) {
+  /* line 29, ../sass/_home.scss */
+  .HomeActivityTop {
+    width: 96%;
+    height: 100%;
+    margin: 0 auto;
+  }
+}
+
+/* line 69, ../sass/_home.scss */
+.HomeActivityList {
+  width: 100%;
+  height: 90%;
+  margin-top: 1%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 77, ../sass/_home.scss */
+.HomeActivity {
+  width: 100%;
+  height: 20%;
+  margin: 0.8% 0%;
+  padding: 1% 0 0 0;
+  background-color: #DDD;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-top: 1px solid #29353b;
+  border-bottom: 1px solid #29353b;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* line 94, ../sass/_home.scss */
+.HomeActivity img {
+  width: 15%;
+  height: 90%;
+  margin: 0.5% 1% 0 1%;
+  float: left;
+  background-color: #29353b;
+  border-radius: 50%;
+  border: 4px solid #222222;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-background-clip: padding;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+}
+@media (max-width: 1025px) {
+  /* line 94, ../sass/_home.scss */
+  .HomeActivity img {
+    width: 15%;
+    height: auto;
+  }
+}
+
+/* line 113, ../sass/_home.scss */
+.HomeActivity p {
+  width: 80%;
+  height: 90%;
+  float: left;
+}
+@media (max-width: 1025px) {
+  /* line 113, ../sass/_home.scss */
+  .HomeActivity p {
+    width: 100%;
+    float: none;
+  }
+}
+
+/* line 124, ../sass/_home.scss */
+.HomeActivity span {
+  float: left;
+}
+@media (max-width: 1025px) {
+  /* line 124, ../sass/_home.scss */
+  .HomeActivity span {
+    float: none;
+  }
+}
+
+/* line 132, ../sass/_home.scss */
+.HomeActivityBuffer {
+  height: 50px;
+  width: 100px;
+  position: relative;
+}
+
+/* line 139, ../sass/_home.scss */
+.HomeBtnDiv {
+  width: 42%;
+  height: 90%;
+  margin: 1%;
+  float: right;
+}
+@media (max-width: 320px) {
+  /* line 139, ../sass/_home.scss */
+  .HomeBtnDiv {
+    width: 100%;
+    height: 70%;
+    margin: 7% 1% 1% 1%;
+    float: none;
+  }
+}
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+  /* line 139, ../sass/_home.scss */
+  .HomeBtnDiv {
+    width: 100%;
+    height: 60%;
+  }
+}
+@media only screen and (min-width: 481px) and (max-width: 1023px) {
+  /* line 139, ../sass/_home.scss */
+  .HomeBtnDiv {
+    width: 100%;
+    height: 70%;
+  }
+}
+
+/* line 165, ../sass/_home.scss */
+.HomeBtn {
+  width: 60%;
+  height: 15%;
+  margin: 7% 20%;
+}
+@media (max-width: 320px) {
+  /* line 165, ../sass/_home.scss */
+  .HomeBtn {
+    width: 80%;
+    height: 17%;
+    margin: 7% 10%;
+  }
+}
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+  /* line 165, ../sass/_home.scss */
+  .HomeBtn {
+    width: 80%;
+    height: 20%;
+    margin: 3% 10%;
+  }
+}
+@media only screen and (min-width: 481px) and (max-width: 1023px) {
+  /* line 165, ../sass/_home.scss */
+  .HomeBtn {
+    width: 80%;
+    height: 17%;
+    margin: 7% 10%;
+  }
+}
+
+/* line 190, ../sass/_home.scss */
+.HomeBtn span {
+  position: relative;
+  top: 25%;
+  font-size: 2.1em;
+}
+@media (max-width: 320px) {
+  /* line 190, ../sass/_home.scss */
+  .HomeBtn span {
+    font-size: 1.5em;
+    top: .5em;
+  }
+}
+
+/**
+* Style for the Meeting View
+*/
+/* line 7, ../sass/_meeting.scss */
+.MeetingListTop {
+  width: 15%;
+  height: 90%;
+  float: left;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-right: 2px solid #29353b;
+}
+@media (max-width: 1025px) {
+  /* line 7, ../sass/_meeting.scss */
+  .MeetingListTop {
+    width: 100%;
+    margin: 2% 0 0 0;
+  }
+}
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+  /* line 7, ../sass/_meeting.scss */
+  .MeetingListTop {
+    height: 180%;
+  }
+}
+
+/* line 25, ../sass/_meeting.scss */
+.MeetingSearchDiv {
+  width: 100%;
+  height: 5%;
+}
+/* line 29, ../sass/_meeting.scss */
+.MeetingSearchDiv input {
+  width: 94%;
+  height: 100%;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  border-radius: 15px;
+  padding: 0 10px;
+  margin: 0 3%;
+  font-size: 1.2em;
+  font-weight: 900;
+  font-family: Helvetica;
+}
+@media (max-width: 1025px) {
+  /* line 25, ../sass/_meeting.scss */
+  .MeetingSearchDiv {
+    height: 7%;
+  }
+}
+
+/* line 47, ../sass/_meeting.scss */
+.MeetingListUL {
+  width: 100%;
+  height: 100%;
+  margin: 1% 0 0 0;
+}
+
+/* line 54, ../sass/_meeting.scss */
+.MeetingListItem {
+  width: 92%;
+  height: 12%;
+  position: relative;
+  float: right;
+  padding: 0 2%;
+  margin: 0 1.5% 2px 0;
+  background-color: #AAA;
+  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #999999), color-stop(20%, #dddddd), color-stop(80%, #dddddd), color-stop(100%, #999999));
+  background-image: -webkit-linear-gradient(left, #999999 0%, #dddddd 20%, #dddddd 80%, #999999 100%);
+  background-image: -moz-linear-gradient(left, #999999 0%, #dddddd 20%, #dddddd 80%, #999999 100%);
+  background-image: -o-linear-gradient(left, #999999 0%, #dddddd 20%, #dddddd 80%, #999999 100%);
+  background-image: linear-gradient(left, #999999 0%, #dddddd 20%, #dddddd 80%, #999999 100%);
+}
+@media (max-width: 1025px) {
+  /* line 54, ../sass/_meeting.scss */
+  .MeetingListItem {
+    width: 100%;
+    height: 20%;
+    margin: 0 0 2px 0;
+    padding: 0;
+  }
+}
+/* line 78, ../sass/_meeting.scss */
+.MeetingListItem img {
+  display: none;
+}
+/* line 82, ../sass/_meeting.scss */
+.MeetingListItem .ItemDivider {
+  position: absolute;
+  bottom: -2px;
+}
+
+/* line 88, ../sass/_meeting.scss */
+.MeetingListItem p {
+  width: 94%;
+  height: 47%;
+  margin: 0% 3%;
+  overflow: hidden;
+}
+@media (max-width: 1025px) {
+  /* line 88, ../sass/_meeting.scss */
+  .MeetingListItem p {
+    height: 57%;
+  }
+}
+
+/* line 101, ../sass/_meeting.scss */
+.MeetingLI_Title, .MeetingLI_Time {
+  width: 96%;
+  height: 25%;
+  color: #222;
+  font-family: Helvetica;
+  font-weight: 900;
+}
+@media (max-width: 1025px) {
+  /* line 101, ../sass/_meeting.scss */
+  .MeetingLI_Title, .MeetingLI_Time {
+    height: 20%;
+  }
+}
+
+/* line 115, ../sass/_meeting.scss */
+.MeetingCalendarTop {
+  width: 85%;
+  height: 95%;
+  float: left;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-right: 2px solid #29353b;
+}
+@media (max-width: 1025px) {
+  /* line 115, ../sass/_meeting.scss */
+  .MeetingCalendarTop {
+    display: none;
+  }
+}
+
+/* line 129, ../sass/_meeting.scss */
+.MeetingCal {
+  width: 100%;
+  height: 100%;
+}
+
+/* line 134, ../sass/_meeting.scss */
+.MeetingCalHeader {
+  width: 100%;
+  height: 5%;
+}
+
+/* line 139, ../sass/_meeting.scss */
+.MeetingCalHeaderItem {
+  width: 14.28%;
+  height: 100%;
+  float: left;
+  background-image: none;
+  background-color: #29353b;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 1px solid #182e3b;
+  text-align: center;
+}
+/* line 153, ../sass/_meeting.scss */
+.MeetingCalHeaderItem span {
+  position: relative;
+  font-size: 1.6em;
+  font-weight: 900;
+  color: #DDD;
+  text-shadow: -1px -1px 0 #333333, 1px -1px 0 #333333, -1px 1px 0 #333333, 1px 1px 0 #333333;
+}
+
+/* line 166, ../sass/_meeting.scss */
+.MeetingCalUL {
+  width: 100%;
+  height: 95%;
+}
+
+/* line 171, ../sass/_meeting.scss */
+.CalDay {
+  width: 14.28%;
+  height: 19%;
+  position: relative;
+  float: left;
+  background-color: #EEE;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 1px solid #182e3b;
+  overflow: hidden;
+}
+
+/* line 185, ../sass/_meeting.scss */
+.CalNumber {
+  width: 35%;
+  height: 50%;
+  position: absolute;
+  top: 0%;
+  right: 3%;
+  text-align: right;
+}
+/* line 195, ../sass/_meeting.scss */
+.CalNumber span {
+  font-size: 3em;
+  font-weight: 900;
+  color: #333;
+}
+
+/* line 202, ../sass/_meeting.scss */
+.CalMeets {
+  width: 15%;
   height: 20%;
   position: absolute;
-  left: auto;
-  right: 5%;
-  top: auto;
-  bottom: 5%;
+  top: 2%;
+  left: 3%;
+  text-align: center;
+  display: none;
+  background-color: #822;
+  border: 2px solid #441111;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  border-radius: 15px;
 }
+/* line 213, ../sass/_meeting.scss */
+.CalMeets span {
+  font-size: 1.4em;
+  font-weight: 900;
+  color: #DDD;
+  text-shadow: -1px -1px 0 #333333, 1px -1px 0 #333333, -1px 1px 0 #333333, 1px 1px 0 #333333;
+}
+
+/* line 229, ../sass/_meeting.scss */
+.CalMeeting {
+  width: 94%;
+  height: 15%;
+  margin: 1% 3%;
+  position: relative;
+  top: 40%;
+  text-align: center;
+  border: 1px solid #29353b;
+  background-color: #366988;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+}
+/* line 244, ../sass/_meeting.scss */
+.CalMeeting span {
+  color: #222;
+}
+
+/**
+* Style for Detail View
+*/
+/* line 5, ../sass/_detail.scss */
+.DetailView {
+  text-align: right;
+}
+/* line 8, ../sass/_detail.scss */
+.DetailView h1 {
+  font-family: Helvetica;
+  font-size: 2.4em;
+  font-weight: 900;
+  padding: 0 4% 0 2%;
+}
+/* line 16, ../sass/_detail.scss */
+.DetailView label {
+  display: block;
+}
+
+/* line 21, ../sass/_detail.scss */
+.DetailOwners, .DetailColleagues, .DetailClients {
+  width: 20%;
+  height: auto;
+  margin: 1% 0 2% 0;
+  float: left;
+  border-right: 2px solid #29353b;
+  text-align: center;
+}
+@media (max-width: 1025px) {
+  /* line 21, ../sass/_detail.scss */
+  .DetailOwners, .DetailColleagues, .DetailClients {
+    width: 100%;
+  }
+}
+
+/* line 38, ../sass/_detail.scss */
+.DetailUser {
+  width: 85%;
+  height: 10%;
+  float: right;
+  margin: 5% 5% 0 0;
+}
+/* line 44, ../sass/_detail.scss */
+.DetailUser div {
+  padding-right: 10px;
+}
+
+/* line 49, ../sass/_detail.scss */
+.DetailsDiv {
+  width: 75%;
+  height: 100%;
+  text-align: left;
+  float: right;
+}
+@media (max-width: 1025px) {
+  /* line 49, ../sass/_detail.scss */
+  .DetailsDiv {
+    width: 97%;
+    height: 90%;
+    padding: 0 0 0 3%;
+  }
+}
+/* line 62, ../sass/_detail.scss */
+.DetailsDiv h1 {
+  position: relative;
+  left: -2%;
+  padding: 0;
+  margin: 0 0 1% 0;
+}
+/* line 70, ../sass/_detail.scss */
+.DetailsDiv label {
+  padding: 1% 1%;
+}
+
+/* line 75, ../sass/_detail.scss */
+#DetailsForm {
+  width: 100%;
+  height: 100%;
+}
+
+/* line 80, ../sass/_detail.scss */
+#DetailsForm label {
+  font-family: Helvetica;
+  font-size: 1.2em;
+  font-weight: 900;
+}
+
+/* line 86, ../sass/_detail.scss */
+#DetailsForm input[type='text'] {
+  width: 80%;
+  float: right;
+  padding: .5%;
+  margin: 0 5% 0 0;
+}
+@media (max-width: 1025px) {
+  /* line 86, ../sass/_detail.scss */
+  #DetailsForm input[type='text'] {
+    width: 90%;
+  }
+}
+
+/* line 98, ../sass/_detail.scss */
+#DetailsForm textarea {
+  width: 80%;
+  height: 100px;
+  float: right;
+  padding: .5%;
+  margin: 1% 5% 1% 0;
+  border: 2px outset white;
+}
+@media (max-width: 1025px) {
+  /* line 98, ../sass/_detail.scss */
+  #DetailsForm textarea {
+    width: 90%;
+  }
+}
+
+/* line 112, ../sass/_detail.scss */
+.DetailDesc {
+  height: 135px;
+}
+
+/* line 116, ../sass/_detail.scss */
+.SaveBtn {
+  width: auto;
+  height: auto;
+  float: right;
+  position: relative;
+  right: 5%;
+  padding: 5px 15px;
+  margin: 2% 1%;
+}
+
+/**
+* Client View Styles
+*/
+/* line 4, ../sass/_client.scss */
+.ClientView {
+  text-align: right;
+}
+/* line 7, ../sass/_client.scss */
+.ClientView h1 {
+  font-family: Helvetica;
+  font-size: 2.4em;
+  font-weight: 900;
+  padding: 0 4% 0 2%;
+}
+
+/* line 16, ../sass/_client.scss */
+.ClientList {
+  width: 20%;
+  height: auto;
+  margin: 1% 0 2% 0;
+  float: left;
+  clear: both;
+  border-right: 2px solid #29353b;
+}
+@media (max-width: 1025px) {
+  /* line 16, ../sass/_client.scss */
+  .ClientList {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1025px) {
+  /* line 33, ../sass/_client.scss */
+  .inDetail .ClientList {
+    display: none;
+  }
+}
+
+/* line 39, ../sass/_client.scss */
+.ClientListItem {
+  width: 90%;
+}
+
+/* line 43, ../sass/_client.scss */
+.ClientUser {
+  width: 85%;
+  height: 10%;
+  float: right;
+  margin: 5% 5% 0 0;
+}
+/* line 49, ../sass/_client.scss */
+.ClientUser div {
+  padding-right: 10px;
+}
+
+/* line 54, ../sass/_client.scss */
+.ClientUserName {
+  width: 70%;
+  top: 0px;
+}
+
+/* line 59, ../sass/_client.scss */
+.ClientUserCompany {
+  width: 70%;
+  float: right;
+}
+
+/* line 64, ../sass/_client.scss */
+.ClientDetails {
+  width: 75%;
+  height: 100%;
+  float: right;
+  text-align: left;
+}
+@media (max-width: 1025px) {
+  /* line 64, ../sass/_client.scss */
+  .ClientDetails {
+    display: none;
+  }
+}
+
+/* line 78, ../sass/_client.scss */
+.ClientDetails h1 {
+  position: relative;
+  left: -2%;
+  padding: 0;
+  margin: 0 0 1% 0;
+}
+@media (max-width: 1025px) {
+  /* line 78, ../sass/_client.scss */
+  .ClientDetails h1 {
+    left: 0;
+    font-size: 1.5em;
+    margin: 0 0 2% 0;
+  }
+}
+
+@media (max-width: 1025px) {
+  /* line 92, ../sass/_client.scss */
+  .inDetail .ClientDetails {
+    display: block;
+    width: 96%;
+    padding: 0 2%;
+  }
+}
+
+/* line 101, ../sass/_client.scss */
+#ClientForm {
+  width: 100%;
+  height: 100%;
+}
+
+/* line 109, ../sass/_client.scss */
+#ClientForm textarea {
+  width: 80%;
+  height: 110px;
+  float: right;
+  padding: .5%;
+  margin: 1% 5% 0% 0;
+  border: 2px outset white;
+}
+@media (max-width: 1025px) {
+  /* line 109, ../sass/_client.scss */
+  #ClientForm textarea {
+    width: 95%;
+    margin: 1% 1% 0 0;
+  }
+}
+
+/* line 125, ../sass/_client.scss */
+#ClientForm input[type='text'] {
+  width: 80%;
+  float: right;
+  padding: .5%;
+  margin: 0 5% 0 0;
+}
+@media (max-width: 1025px) {
+  /* line 125, ../sass/_client.scss */
+  #ClientForm input[type='text'] {
+    width: 95%;
+    margin: 1% 1% 0 0;
+  }
+}
+
+/* line 138, ../sass/_client.scss */
+#ClientForm label {
+  display: block;
+  height: 25px;
+  padding: 1% 1%;
+  font-family: Helvetica;
+  font-size: 1.2em;
+  font-weight: 900;
+  clear: both;
+}
+@media (max-width: 1025px) {
+  /* line 138, ../sass/_client.scss */
+  #ClientForm label {
+    height: 30px;
+  }
+}
+
+/* line 155, ../sass/_client.scss */
+.ClientDesc {
+  height: 135px;
+}
+
+/**
+* Client Detail View Styles
+*/
+/* line 4, ../sass/_clientDetail.scss */
+.ClientDetailView {
+  position: absolute;
+  top: 60px;
+}
+
+/* line 9, ../sass/_clientDetail.scss */
+.ClientDetailLogo {
+  position: absolute;
+  top: -50px;
+}
+
+/**
+* Settings View Styles
+*/
+/**
+* Settings View Styles
+*/
