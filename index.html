@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="wcon" ng-controller="TopCtrl">
+<html lang="en" ng-app="wcon"> 
 <head>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -13,7 +13,7 @@
 	<![endif]-->
 </head>
 <body>
-    <div ng-click="toggleMenu()" ng-show="loggedIn" ng-class="{OpenMenu:showMenu}" class="UserDiv">
+    <div ng-controller="MenuCtrl" ng-click="toggleMenu()" ng-show="loggedIn" ng-class="{OpenMenu:showMenu}" class="UserDiv">
         <div class="UserName">{{user.name + '\u25BC'}}</div>
         <img ng-src="{{user.imageURL}}"></img>
         <ul ng-show="showMenu" class="UserMenu">
@@ -28,15 +28,8 @@
             </li>
         </ul>
     </div>
-    <!--<div ng-show="loggedIn" logout="logout()" class="LogoutDiv GreenBtn">
-        <span>Logout</span>
-    </div>-->
 	<div class="TopView" ng-view></div>
 	
-	<!-- In production use:
-	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js"></script>
-	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular-resource.min.js"></script>
-	-->
 	<script src="lib/angular/angular.js"></script>
 	<script src="lib/angular/angular-resource.js"></script>
     <script src="js/enums.js"></script>

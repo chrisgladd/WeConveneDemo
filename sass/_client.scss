@@ -36,6 +36,12 @@
     }
 }
 
+.ClientListUL {
+	@include mobile-landscape {
+	    padding: 0 10% 0 0;
+	}
+}
+
 .ClientListItem {
     width: 90%;
 }
@@ -45,10 +51,16 @@
     height: 10%;
     float: right;
     margin: 5% 5% 0 0;
+
+    z-index: 0;
     
     div {
         padding-right: 10px;
     }
+
+	@include mobile-landscape {
+	    width: 45%;
+	}
 }
 
 .ClientUserName {

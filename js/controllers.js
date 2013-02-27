@@ -7,10 +7,10 @@ var D = true;
 /* Controllers */
 
 /**
- * Top Level Functionality
+ * Menu Controller 
  * User Menu, Logo
  */
-function TopCtrl($scope, $rootScope, $location, User) {
+function MenuCtrl($scope, $rootScope, $location, User) {
     $scope.user = User.getUser();
     $scope.loggedIn = User.getStatus();
     $scope.showMenu = false;

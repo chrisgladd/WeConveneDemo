@@ -1245,36 +1245,50 @@ a {
   }
 }
 
-/* line 39, ../sass/_client.scss */
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+  /* line 39, ../sass/_client.scss */
+  .ClientListUL {
+    padding: 0 10% 0 0;
+  }
+}
+
+/* line 45, ../sass/_client.scss */
 .ClientListItem {
   width: 90%;
 }
 
-/* line 43, ../sass/_client.scss */
+/* line 49, ../sass/_client.scss */
 .ClientUser {
   width: 85%;
   height: 10%;
   float: right;
   margin: 5% 5% 0 0;
+  z-index: 0;
 }
-/* line 49, ../sass/_client.scss */
+/* line 57, ../sass/_client.scss */
 .ClientUser div {
   padding-right: 10px;
 }
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+  /* line 49, ../sass/_client.scss */
+  .ClientUser {
+    width: 45%;
+  }
+}
 
-/* line 54, ../sass/_client.scss */
+/* line 66, ../sass/_client.scss */
 .ClientUserName {
   width: 70%;
   top: 0px;
 }
 
-/* line 59, ../sass/_client.scss */
+/* line 71, ../sass/_client.scss */
 .ClientUserCompany {
   width: 70%;
   float: right;
 }
 
-/* line 64, ../sass/_client.scss */
+/* line 76, ../sass/_client.scss */
 .ClientDetails {
   width: 75%;
   height: 100%;
@@ -1282,13 +1296,13 @@ a {
   text-align: left;
 }
 @media (max-width: 1025px) {
-  /* line 64, ../sass/_client.scss */
+  /* line 76, ../sass/_client.scss */
   .ClientDetails {
     display: none;
   }
 }
 
-/* line 78, ../sass/_client.scss */
+/* line 90, ../sass/_client.scss */
 .ClientDetails h1 {
   position: relative;
   left: -2%;
@@ -1296,7 +1310,7 @@ a {
   margin: 0 0 1% 0;
 }
 @media (max-width: 1025px) {
-  /* line 78, ../sass/_client.scss */
+  /* line 90, ../sass/_client.scss */
   .ClientDetails h1 {
     left: 0;
     font-size: 1.5em;
@@ -1305,7 +1319,7 @@ a {
 }
 
 @media (max-width: 1025px) {
-  /* line 92, ../sass/_client.scss */
+  /* line 104, ../sass/_client.scss */
   .inDetail .ClientDetails {
     display: block;
     width: 96%;
@@ -1313,13 +1327,13 @@ a {
   }
 }
 
-/* line 101, ../sass/_client.scss */
+/* line 113, ../sass/_client.scss */
 #ClientForm {
   width: 100%;
   height: 100%;
 }
 
-/* line 109, ../sass/_client.scss */
+/* line 121, ../sass/_client.scss */
 #ClientForm textarea {
   width: 80%;
   height: 110px;
@@ -1329,14 +1343,14 @@ a {
   border: 2px outset white;
 }
 @media (max-width: 1025px) {
-  /* line 109, ../sass/_client.scss */
+  /* line 121, ../sass/_client.scss */
   #ClientForm textarea {
     width: 95%;
     margin: 1% 1% 0 0;
   }
 }
 
-/* line 125, ../sass/_client.scss */
+/* line 137, ../sass/_client.scss */
 #ClientForm input[type='text'] {
   width: 80%;
   float: right;
@@ -1344,14 +1358,14 @@ a {
   margin: 0 5% 0 0;
 }
 @media (max-width: 1025px) {
-  /* line 125, ../sass/_client.scss */
+  /* line 137, ../sass/_client.scss */
   #ClientForm input[type='text'] {
     width: 95%;
     margin: 1% 1% 0 0;
   }
 }
 
-/* line 138, ../sass/_client.scss */
+/* line 150, ../sass/_client.scss */
 #ClientForm label {
   display: block;
   height: 25px;
@@ -1362,13 +1376,13 @@ a {
   clear: both;
 }
 @media (max-width: 1025px) {
-  /* line 138, ../sass/_client.scss */
+  /* line 150, ../sass/_client.scss */
   #ClientForm label {
     height: 30px;
   }
 }
 
-/* line 155, ../sass/_client.scss */
+/* line 167, ../sass/_client.scss */
 .ClientDesc {
   height: 135px;
 }
