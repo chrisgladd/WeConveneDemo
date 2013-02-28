@@ -750,7 +750,7 @@ a {
   /* line 135, ../sass/_home.scss */
   .HomeBtnDiv {
     width: 100%;
-    height: 60%;
+    height: 40%;
   }
 }
 @media only screen and (min-width: 481px) and (max-width: 1023px) {
@@ -780,7 +780,7 @@ a {
   /* line 166, ../sass/_home.scss */
   .HomeBtn {
     width: 80%;
-    height: 20%;
+    height: 28%;
     margin: 3% 10%;
   }
 }
@@ -809,7 +809,7 @@ a {
 @media only screen and (min-width: 321px) and (max-width: 480px) {
   /* line 191, ../sass/_home.scss */
   .HomeBtn span {
-    top: .4em;
+    top: .3em;
   }
 }
 @media only screen and (min-width: 481px) and (max-width: 1023px) {
