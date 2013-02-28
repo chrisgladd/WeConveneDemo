@@ -43,27 +43,20 @@
         margin: 0 0 5% 0;
     }
 
-    @include mobile-portrait {
+
+    @include device {
 		width: 96%;
 		height: 100%;
 
 		margin: 0 2%;
 		float: none;
-	}
+    }
 
 	@include mobile-landscape {
 		width: 96%;
 		height: 100%;
 
 		margin: 3% 2% 0 2%;
-		float: none;
-	}
-
-	@include tablet-portrait {
-		width: 96%;
-		height: 100%;
-
-		margin: 0 2%;
 		float: none;
 	}
 }
@@ -74,6 +67,7 @@
     margin-top: 1%;
 
     @include box-sizing(border-box);
+    text-align: left;
 }
 
 .HomeActivity {

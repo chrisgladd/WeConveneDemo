@@ -28,17 +28,8 @@ factory('User', ['$resource', '$http',
                 return User;
                 //return User.get({userId: id});
             },
-            getID : function() {
-                return User.id;
-            },
             getStatus : function() {
                 return User.auth;
-            },
-            getImageURL : function() {
-                return User.imageURL;
-            },
-            getName : function() {
-                return User.name;
             }
         }
 }]).
@@ -46,10 +37,8 @@ factory('Client', ['$resource', '$http',
     function($resource, $http) {
         //Client object obtained from RESTful API
         //var Client = $resource('https://api.weconvene.com/api/1/client/:clientId', {clientId:'@id'});
-        var Client = {
 
-        };
-
+        var Client = {};
         return Client;
 }]).
 factory('Meeting', ['$resource', '$http',
@@ -57,43 +46,8 @@ factory('Meeting', ['$resource', '$http',
         //Meeting object obtained from RESTful API
         //var Meeting = $resource('https://api.weconvene.com/api/1/meeting/:meetId', {clientId:'@id'});
 
-        /* Meeting.prototype.update = function(cb) {
-            return Meeting.update({id: this._id.$oid},
-                angular.extend({}, this, {_id:undefined}), cb);
-        };
-
-        Meeting.prototype.destroy = function(cb) {
-            return Meeting.remove({id: this._id.$oid}, cb);
-        }; */
-
-        var Meeting = {
-            id : -1,
-            title : 'Title',
-            desc : 'Long Description',
-            start : new Date(),
-            end : new Date()
-        };
-
-        return {
-            getTitle: function() {
-                return Meeting.title;
-            },
-            getDesc: function() {
-                return Meeting.desc;
-            },
-            getStart: function() {
-                return Meeting.start;
-            },
-            getStartString: function() {
-                return Meeting.start.toString();
-            },
-            getEnd: function() {
-                return Meeting.start;
-            },
-            getEndString: function() {
-                return Meeting.start.toString();
-            },
-        };
+        var Meeting = {};
+        return Meeting;
 }])
 .factory('MeetingGen', function() {
     return (function(){
@@ -111,7 +65,7 @@ factory('Meeting', ['$resource', '$http',
                 id : Math.floor(9999999 * Math.random()),
                 type : 'meeting',
                 title : 'Meeting with ' + name,
-                appt : getDateTimeString(start),
+                appt : wcon.utils.getDateTimeString(start),
                 desc : desc,
                 start : start,
                 end : end,
@@ -124,7 +78,7 @@ factory('Meeting', ['$resource', '$http',
             var name = wcon.utils.getRandomName() + " Smith";
             var action = wcon.utils.getRandomAction();
 
-            meet.title = 'Meeting with ' + name + ' was ' + action + ' to ' + getDateTimeString(meet.start);
+            meet.title = 'Meeting with ' + name + ' was ' + action + ' to ' + wcon.utils.getDateTimeString(meet.start);
             return meet;
         };
 
@@ -170,7 +124,7 @@ factory('Meeting', ['$resource', '$http',
                         break;
                     }
                 }
-                ret = addMeetingUsers(ret);
+                ret = wcon.utils.addMeetingUsers(ret);
                 return ret;
             }
         }
@@ -242,10 +196,12 @@ wcon.utils = {
         var companies = ["WeConvene", "IBM", "Intuitive Controls", "Amazon", "Google"];
         return companies[Math.floor(Math.random() * companies.length)]
     },
+
     getRandomAction : function () {
         var actions = ["Rescheduled", "Moved", "Changed"];
         return actions[Math.floor(Math.random() * actions.length)]
     },
+
     getRandomDates : function () {
         var start = new Date();
         var sMilli = start.getTime();
@@ -255,6 +211,7 @@ wcon.utils = {
 
         return [new Date(sMilli+add), new Date(sMilli+add+end)];
     },
+
     getDateTimeString : function (date) {
         var hr = date.getHours();
         if(hr.length < 2){
@@ -268,6 +225,20 @@ wcon.utils = {
 
         return date.toLocaleDateString() + ' at ' + hr + ':' + min;
     },
+
+    getUsers : function(num, type){
+        var users = [];
+        for(var i = 0; i < num; i++){
+            users.push({
+                type : type,
+                id : -1,
+                name : wcon.utils.getRandomName() + " Smith",
+                imageURL : 'img/unknown.jpg'
+            });
+        }
+        return users;
+    },
+
     addMeetingUsers : function (ret){
         ret.owners = [{
             type : 'user',
@@ -275,30 +246,8 @@ wcon.utils = {
             name : 'Chris Gladd',
             imageURL : 'img/me.jpg'
         }];
-        ret.colleagues = [{
-            type : 'user',
-            id : -1,
-            name : 'John Smith',
-            imageURL : 'img/unknown.jpg'
-        },
-        {
-            type : 'user',
-            id : -1,
-            name : 'Jane Doe',
-            imageURL : 'img/unknown.jpg'
-        }];
-        ret.clients = [{
-            type : 'user',
-            id : -1,
-            name : 'Joe Nobody',
-            imageURL : 'img/unknown.jpg'
-        },
-        {
-            type : 'user',
-            id : -1,
-            name : 'Bob Smith',
-            imageURL : 'img/unknown.jpg'
-        }];
+        ret.colleagues = wcon.utils.getUsers(2,'user');
+        ret.clients = wcon.utils.getUsers(2,'client');
         return ret;
     }
 }

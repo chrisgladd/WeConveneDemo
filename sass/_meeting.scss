@@ -52,26 +52,25 @@
 }
 
 .MeetingListItem {
-    width: 92%;
+    width: 96%;
     height: 12%;
 
     position: relative;
     float: right;
 
     padding: 0 2%;
-    margin: 0 1.5% 2px 0;
+    margin: 0 0 2px 0;
 
     background-color: #AAA;
 	@include background-image(linear-gradient(left, 
-		#999 0%,
+		#BBB 0%,
 		#DDD 20%,
 		#DDD 80%,
-		#999 100%));
+		#BBB 100%));
 	
     @include device {
         width: 100%;
         height: 20%;
-        margin: 0 0 2px 0;
         padding: 0;
     }
 

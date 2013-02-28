@@ -74,10 +74,10 @@ a {
     .LogoPiece {
         left: 0%;
         top: 0%;
-        @include setupTransition(left, 1s, ease-out);
+        @include setupTransition(left, 1s, ease-out, .15s);
     }
     .LogoCenter {
-        @include setupTransition(top, 1s, ease-out);
+        @include setupTransition(top, 1s, ease-out, .15s);
     }
 }
 

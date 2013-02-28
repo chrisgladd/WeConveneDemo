@@ -2,9 +2,7 @@
 
 //Development Flag
 var D = true;
-//var D = false;
 
-/* Controllers */
 
 /**
  * Menu Controller Functionality
@@ -31,6 +29,7 @@ function MenuCtrl($scope, $rootScope, $location, User) {
     };
 
     $scope.logout = function() {
+        User.logOut();
         $rootScope.$broadcast('event:loggedOut');
     };
 
@@ -42,19 +41,28 @@ function MenuCtrl($scope, $rootScope, $location, User) {
     });
 
     $scope.$on('event:loggedOut', function() {
-        User.logOut();
         $scope.loggedIn = User.getStatus();
         $location.path('/login/');
     });
 
+    $scope.$on('event:loginRequired', function() {
+        User.logOut();
+        $scope.loggedIn = false;
+        $location.path('/login/');
+    });
+
+    $scope.$on('event:noUser', function() {
+        $scope.loggedIn = false;
+    });
+
     if(D){
-        User.logIn();
+        //User.logIn();
         $scope.loggedIn = User.getStatus();
     }
 }
 /**
  * Protects the AngularJS injection process when the js code
- * is run through a minifier, making sure injection is destroyed
+ * is run through a minifier, makes sure injection is not destroyed
  */
 MenuCtrl.$inject = ['$scope', '$rootScope', '$location', 'User'];
 
@@ -90,10 +98,17 @@ function LoginCtrl($scope, $location, User, $rootScope) {
     }
 
     $scope.login = function() {
+        //Backend Authentication
+        /* $http.post('auth/login').success(function() {
+            User.logIn();
+        }); */
         User.logIn();
+
         $rootScope.$broadcast('event:loggedIn');
         $location.path('/home/');
     };
+
+    $rootScope.$broadcast('event:noUser');
 }
 LoginCtrl.$inject = ['$scope', '$location', 'User', '$rootScope'];
 
@@ -101,6 +116,10 @@ LoginCtrl.$inject = ['$scope', '$location', 'User', '$rootScope'];
  * Home Controller
  */
 function HomeCtrl($scope, MeetingGen) {
+    //A collection of recent activities
+    //With a backend API, should be able to pull the
+    //most recent activites relavent to the user from
+    //an activity log or something similar.
     $scope.activities = MeetingGen.getActivities(5);
 }
 HomeCtrl.$inject = ['$scope', 'MeetingGen'];
@@ -123,10 +142,12 @@ function MeetCtrl($scope, Meeting, MeetingGen) {
         var month = date.getMonth();
         var dow = date.getDay();
 
+        //Start the calendar at the current week
         date.setDate((-1 * dow)-1);
         var start = new Date();
         start.setDate(date.getDate() - dow);
 
+        //Add the days and meetings to the calendar model
         var days = [];
         for(var i = 0; i < 35; i++){
            days.push({
@@ -157,6 +178,7 @@ function DetailCtrl($scope, $routeParams, Meeting, MeetingGen) {
 
     $scope.save = function() {
         //Show Saved text next to buttons
+        window.history.back();
     }
 
     $scope.cancel = function() {
