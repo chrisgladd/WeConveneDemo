@@ -146,7 +146,6 @@ function MeetCtrl($scope, Meeting, MeetingGen) {
         var dow = date.getDay();
 
         //Start the calendar at the current week
-        date.setDate((-1 * dow)-1);
         var start = new Date();
         start.setDate(date.getDate() - dow);
 

@@ -128,6 +128,7 @@ factory('Meeting', ['$resource', '$http',
                 var meetings = [];
                 for(var i = 0; i < Generated.length; i++){
                     var s = Generated[i].start;
+                    console.log(date);
                     if((date.getYear() === s.getYear()) &&
                         (date.getMonth() === s.getMonth()) &&
                         (date.getDate() === s.getDate())){
