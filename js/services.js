@@ -4,9 +4,10 @@
 angular.module('wcon.services', ['ngResource']).
 factory('User', ['$resource', '$http', 
     function($resource, $http) {
-        //User object obtained from RESTful API
+        //If we had a backend, this would target the User object
         //var User = $resource('https://api.weconvene.com/api/1/users/:userId',{userId:'@id'});
 
+        //But we don't, so we'll fake it
         var User = {
             id : '-1',
             auth : false,
@@ -14,6 +15,7 @@ factory('User', ['$resource', '$http',
             name : 'Chris Gladd'
         };
 
+        //Provide Accessor / Modifiers
         return {
             logIn : function() {
                 User.auth = true;
@@ -21,11 +23,13 @@ factory('User', ['$resource', '$http',
             logOut : function() {
                 User.auth = false;
             },
-            queryUsers : function() {
+            getUsers : function() {
+                //Backend Only
                 //return User.query();
             },
             getUser : function(id) {
                 return User;
+                //Backend usage
                 //return User.get({userId: id});
             },
             getStatus : function() {
@@ -50,11 +54,18 @@ factory('Meeting', ['$resource', '$http',
         return Meeting;
 }])
 .factory('MeetingGen', function() {
+    /**
+     * Generate some fake meetings for the UI to play with
+     * Some of this is rougher since it's just for faking purposes
+     */
     return (function(){
-        var desc = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec risus nulla, fringilla at convallis non, adipiscing et libero.';
+        var desc = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec risus nulla, fringilla at convallis non, adipiscing et libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec risus nulla, fringilla at convallis non, adipiscing et libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec risus nulla, fringilla at convallis non, adipiscing et libero.';
 
         var Generated = [];
 
+        /**
+         * Generate a single meeting
+         */
         function generateMeeting(){
             var dates = wcon.utils.getRandomDates();
             var start = dates[0];
@@ -73,6 +84,9 @@ factory('Meeting', ['$resource', '$http',
             }
         };
 
+        /**
+         * Fake an activity for the home page
+         */
         function generateMeetingAct(){
             var meet = generateMeeting();
             var name = wcon.utils.getRandomName() + " Smith";
@@ -82,7 +96,14 @@ factory('Meeting', ['$resource', '$http',
             return meet;
         };
 
+        /**
+         * Expose the following public methods
+         */
         return {
+            /**
+             * Generate a collection of activities
+             * num : number of activites to create
+             */
             getActivities: function(num) {
                 var meetings = [];
                 for(var i = 0; i < num; i++){
@@ -91,6 +112,10 @@ factory('Meeting', ['$resource', '$http',
                 Generated = meetings;
                 return Generated;
             },
+            /**
+             * Generate a collection of meetings
+             * num : number of meetings to create
+             */
             getMeetings: function(num) {
                 var meetings = [];
                 for(var i = 0; i < num; i++){
@@ -115,22 +140,27 @@ factory('Meeting', ['$resource', '$http',
                 if(Generated.length < 1){
                     this.getMeetings(1);
                 }
+
                 var ret = Generated[0];
                 for(var i = 0; i < Generated.length; i++){
                     var gid = Generated[i].id;
-                    console.log(gid + " : " + id);
                     if(gid == id){
                         ret = Generated[i];
                         break;
                     }
                 }
                 ret = wcon.utils.addMeetingUsers(ret);
+
                 return ret;
             }
         }
     })();
 })
 .factory('ClientGen', function() {
+    /**
+     * Generate some fake clients for the UI to play with
+     * Some of this is rougher since it's just for faking purposes
+     */
     return (function(){
         var desc = 'Client for 2 years.';
         var Generated = [];
@@ -185,7 +215,9 @@ factory('Meeting', ['$resource', '$http',
     })();
 });
 
+// Create a simple namespace
 var wcon = wcon || {};
+// Create the utils namespace to house some helper functions
 wcon.utils = {
     getRandomName : function (){
         var names = ["Bob", "John", "Mary", "Jane"];

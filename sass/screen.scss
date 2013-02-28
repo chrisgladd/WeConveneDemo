@@ -19,8 +19,15 @@ body {
 }
 
 a {
-    color: #333;
+    color: $text;
     text-decoration: none;
+}
+
+/**
+* Prevent FOUC
+*/
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none;
 }
 
 /**

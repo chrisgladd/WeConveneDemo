@@ -67,7 +67,7 @@ function MenuCtrl($scope, $rootScope, $location, User) {
 MenuCtrl.$inject = ['$scope', '$rootScope', '$location', 'User'];
 
 /**
- * Controller for Splash Animation
+ * Controller for Splash Page Animation
  */
 function SplashCtrl($scope, $location, $timeout) {
     $scope.doAnim = false;
@@ -102,6 +102,8 @@ function LoginCtrl($scope, $location, User, $rootScope) {
         /* $http.post('auth/login').success(function() {
             User.logIn();
         }); */
+
+        //Faked Authentication
         User.logIn();
 
         $rootScope.$broadcast('event:loggedIn');
@@ -128,7 +130,7 @@ HomeCtrl.$inject = ['$scope', 'MeetingGen'];
  * Meeting Controller
  */
 function MeetCtrl($scope, Meeting, MeetingGen) {
-    //If we had a backend, this would GET the collection of meetings
+    //If we had a backend, this would get the collection of meetings
     //$scope.meetings = Meeting.query();
     
     //But, we don't, so we'll fake it for now
@@ -136,6 +138,7 @@ function MeetCtrl($scope, Meeting, MeetingGen) {
 
     $scope.daysofweek = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 
+    //Get the current calendar
     $scope.getMonth = function(date) {
         var current = new Date();
 
@@ -172,10 +175,6 @@ function DetailCtrl($scope, $routeParams, Meeting, MeetingGen) {
     //$scope.meeting = Meeting.get({meetId: $routeParams.meetId});
     $scope.meeting = MeetingGen.getMeetingByID($routeParams.meetId);
     
-    $scope.id = $scope.meeting.id;
-    $scope.title = $scope.meeting.title;
-    $scope.desc = $scope.meeting.desc;
-
     $scope.save = function() {
         //Show Saved text next to buttons
         window.history.back();
@@ -211,6 +210,7 @@ function ClientCtrl($scope, $routeParams, Client, ClientGen) {
 
     $scope.save = function() {
         //Show Saved text next to buttons
+        window.history.back();
     }
 
     $scope.cancel = function() {
@@ -222,6 +222,7 @@ ClientCtrl.$inject = ['$scope', '$routeParams', 'Client', 'ClientGen'];
 
 /** 
  * About Controller
+ * Info about how the app was contructed
  */
 function AboutCtrl($scope){
     $scope.list = [
