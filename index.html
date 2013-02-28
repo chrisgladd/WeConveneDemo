@@ -17,11 +17,14 @@
         <div class="UserName">{{user.name + '\u25BC'}}</div>
         <img ng-src="{{user.imageURL}}"></img>
         <ul ng-show="showMenu" class="UserMenu">
-            <li ng-click="home()" class="UserMenuItem">
+            <li ng-click="back()" class="UserMenuItem">
+                <span>Back</span>
+            </li>
+            <li ng-click="nav('home')" class="UserMenuItem">
                 <span>Home</span>
             </li>
-            <li ng-click="settings()" class="UserMenuItem">
-                <span>Settings</span>
+            <li ng-click="nav('about')" class="UserMenuItem">
+                <span>About</span>
             </li>
             <li ng-click="logout()" class="UserMenuItem">
                 <span>Logout</span>

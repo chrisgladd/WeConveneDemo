@@ -114,6 +114,14 @@ $mq-desktop				: 1382px !default;
 	@include box-sizing(border-box);
 }
 
+@mixin outlineText($color:#222) {
+        text-shadow:
+            -1px -1px 0 $color,  
+            1px -1px 0 $color,
+            -1px 1px 0 $color,
+            1px 1px 0 $color;
+}
+
 @mixin ColorBox {
 	background-color: adjust-saturation($base-dark, 30%);
 

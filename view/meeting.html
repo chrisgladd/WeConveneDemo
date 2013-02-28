@@ -12,7 +12,7 @@
         </div>
         <ul class="MeetingListUL">
             <div class="ItemDivider"></div>
-            <li ng-repeat="meet in meetings | filter:query | orderBy:appt" class="MeetingListItem">
+            <li ng-repeat="meet in meetings | filter:query | orderBy:meet.appt" class="MeetingListItem">
                 <a href="#/{{meet.type}}/{{meet.id}}">
                     <img ng-src="{{meet.imageURL}}"></img>
                 </a>

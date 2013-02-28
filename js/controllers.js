@@ -7,7 +7,7 @@ var D = true;
 /* Controllers */
 
 /**
- * Menu Controller 
+ * Menu Controller Functionality
  * User Menu, Logo
  */
 function MenuCtrl($scope, $rootScope, $location, User) {
@@ -22,12 +22,12 @@ function MenuCtrl($scope, $rootScope, $location, User) {
         $scope.showMenu = !$scope.showMenu;
     };
 
-    $scope.home = function() {
-        $location.path('/home/');
+    $scope.nav = function(page) {
+        $location.path('/'+page+'/');
     };
 
-    $scope.settings = function() {
-        $location.path('/settings/');
+    $scope.back = function() {
+        window.history.back();
     };
 
     $scope.logout = function() {
@@ -52,11 +52,16 @@ function MenuCtrl($scope, $rootScope, $location, User) {
         $scope.loggedIn = User.getStatus();
     }
 }
+/**
+ * Protects the AngularJS injection process when the js code
+ * is run through a minifier, making sure injection is destroyed
+ */
+MenuCtrl.$inject = ['$scope', '$rootScope', '$location', 'User'];
 
 /**
  * Controller for Splash Animation
  */
-function SplashCtrl($scope, $location, $timeout, $log) {
+function SplashCtrl($scope, $location, $timeout) {
     $scope.doAnim = false;
 
     $scope.animate = function() {
@@ -71,6 +76,7 @@ function SplashCtrl($scope, $location, $timeout, $log) {
 
     var animTimeout = $timeout( $scope.animate, 150 );
 }
+SplashCtrl.$inject = ['$scope', '$location', '$timeout'];
 
 /**
  * Login Controller
@@ -89,19 +95,26 @@ function LoginCtrl($scope, $location, User, $rootScope) {
         $location.path('/home/');
     };
 }
+LoginCtrl.$inject = ['$scope', '$location', 'User', '$rootScope'];
 
 /**
  * Home Controller
  */
-function HomeCtrl($scope, $location, Activity) {
+function HomeCtrl($scope, MeetingGen) {
     $scope.activities = MeetingGen.getActivities(5);
 }
+HomeCtrl.$inject = ['$scope', 'MeetingGen'];
 
 /**
  * Meeting Controller
  */
-function MeetCtrl($scope, Meeting) {
+function MeetCtrl($scope, Meeting, MeetingGen) {
+    //If we had a backend, this would GET the collection of meetings
+    //$scope.meetings = Meeting.query();
+    
+    //But, we don't, so we'll fake it for now
     $scope.meetings = MeetingGen.getMeetings(10);
+
     $scope.daysofweek = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 
     $scope.getMonth = function(date) {
@@ -128,11 +141,14 @@ function MeetCtrl($scope, Meeting) {
 
     $scope.days = $scope.getMonth(new Date());
 }
+MeetCtrl.$inject = ['$scope', 'Meeting', 'MeetingGen'];
 
 /**
  * Meeting Detail Controller
  */
-function DetailCtrl($scope, $routeParams, Meeting) {
+function DetailCtrl($scope, $routeParams, Meeting, MeetingGen) {
+    //Here we would GET a specific meeting from the API
+    //$scope.meeting = Meeting.get({meetId: $routeParams.meetId});
     $scope.meeting = MeetingGen.getMeetingByID($routeParams.meetId);
     
     $scope.id = $scope.meeting.id;
@@ -148,18 +164,23 @@ function DetailCtrl($scope, $routeParams, Meeting) {
         window.history.back();
     }
 }
+DetailCtrl.$inject = ['$scope', '$routeParams', 'Meeting', 'MeetingGen'];
 
 /**
  * Client List and Detail Controller
  */
-function ClientCtrl($scope, $routeParams, Client) {
+function ClientCtrl($scope, $routeParams, Client, ClientGen) {
+    //Flag for mobile to hide ClientList
     $scope.detailMode = false;
 
+    //If we don't have any clients populated, fetch some
     if(!$scope.clients){
         $scope.detailMode = false;
         $scope.clients = ClientGen.getClients(10);
         $scope.clientTitle = "";
     }
+
+    //If a client has been chosen, populate the form
     if($routeParams.clientId){
         $scope.detailMode = true;
         $scope.client = ClientGen.getClientByID($routeParams.clientId);
@@ -175,18 +196,20 @@ function ClientCtrl($scope, $routeParams, Client) {
         window.history.back();
     }
 }
-
-/**
- * Data Controller
- */
-function DataCtrl($scope, Data) {
-}
-
+ClientCtrl.$inject = ['$scope', '$routeParams', 'Client', 'ClientGen'];
 
 /** 
- * Settings Controller
+ * About Controller
  */
-function SettingsCtrl($scope){
-
+function AboutCtrl($scope){
+    $scope.list = [
+        { name: "Author", value: "Chris Gladd" },
+        { name: "OS", value: "Ubuntu with Cinnamon" },
+        { name: "Editor", value: "gVim" },
+        { name: "Browser", value: "Chrome" },
+        { name: "Framework", value: "AngularJS 1.0.3" },
+        { name: "CSS", value: "Sass using Compass" },
+        { name: "Tested On", value: "Chrome (Desktop, iPhone), Safari (iPad, iPhone)" }
+    ];
 }
-//SetCtrl.$inject = [];
+AboutCtrl.$inject = ['$scope'];

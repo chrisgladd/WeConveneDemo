@@ -11,15 +11,12 @@ config(function($routeProvider, $locationProvider) {
     $routeProvider.when('/home', {templateUrl: 'view/home.html', controller: HomeCtrl});
 
     $routeProvider.when('/meeting', {templateUrl: 'view/meeting.html', controller: MeetCtrl});
-    $routeProvider.when('/meeting/year/:year', {templateUrl: 'view/meeting.html', controller: MeetCtrl});
-    $routeProvider.when('/meeting/year/:year/month/:month', {templateUrl: 'view/meeting.html', controller: MeetCtrl});
-    $routeProvider.when('/meeting/year/:year/month/:month/day/:day', {templateUrl: 'view/meeting.html', controller: MeetCtrl});
     $routeProvider.when('/meeting/:meetId', {templateUrl: 'view/details.html', controller: DetailCtrl});
 
     $routeProvider.when('/client', {templateUrl: 'view/client.html', controller: ClientCtrl});
     $routeProvider.when('/client/:clientId', {templateUrl: 'view/client.html', controller: ClientCtrl});
-    $routeProvider.when('/data', {templateUrl: 'view/data.html', controller: DataCtrl});
-    $routeProvider.when('/settings', {templateUrl: 'view/settings.html', controller: SettingsCtrl});
+
+    $routeProvider.when('/about', {templateUrl: 'view/about.html', controller: AboutCtrl});
 
     $routeProvider.otherwise({redirectTo: '/login'});
 });

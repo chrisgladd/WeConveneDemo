@@ -173,7 +173,7 @@ a {
 
 .OpenMenu {
     background-color: #DDD;
-    height: 200px;
+    height: 250px;
 
     padding: 10px;
 
@@ -264,6 +264,7 @@ a {
     top: 0px;
 }
 
+
 /**
 * Splash Panel
 */
@@ -271,20 +272,11 @@ a {
     width: 90%;
     height: 100%;
 
-    @include mobile-portrait {
-		width: 100%;
-		height: 100%;
-	}
 
-	@include mobile-landscape {
+    @include device {
 		width: 100%;
 		height: 100%;
-	}
-
-	@include tablet-portrait {
-		width: 100%;
-		height: 100%;
-	}
+    }
 }
 
 /**
@@ -295,6 +287,4 @@ a {
 @import "meeting";
 @import "detail";
 @import "client";
-@import "clientDetail";
-@import "data";
-@import "settings";
+@import "about";

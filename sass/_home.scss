@@ -56,13 +56,15 @@
 		height: 100%;
 
 		margin: 3% 2% 0 2%;
+		float: none;
 	}
 
 	@include tablet-portrait {
 		width: 96%;
 		height: 100%;
 
-		margin: 0 auto;
+		margin: 0 2%;
+		float: none;
 	}
 }
 
@@ -139,15 +141,18 @@
 .HomeBtnDiv {
     width: 42%;
     height: 90%;
+
     margin: 1%;
+    padding: 6% 0 6% 0;
 
     float:right;
 
     @include mobile-portrait {
 		width: 100%;
-		height: 70%;
-		margin: 7% 1% 1% 1%;
+		height: 40%;
 		float: none;
+
+		padding: 5% 0 8% 0;
 	}
 
 	@include mobile-landscape {
@@ -156,8 +161,10 @@
 	}
 
 	@include tablet-portrait {
-		width: 100%;
-		height: 70%;
+		width: 80%;
+		height: 40%;
+
+		margin: 0 10%;
 	}
     
 }
@@ -170,8 +177,8 @@
 
     @include mobile-portrait {
 		width: 80%;
-		height: 17%;
-		margin: 7% 10%;
+		height: 28%;
+		margin: 3% 10%;
 	}
 
 	@include mobile-landscape {
@@ -182,7 +189,7 @@
 
 	@include tablet-portrait {
 		width: 80%;
-		height: 17%;
+		height: 22%;
 		margin: 7% 10%;
 	}
 }
@@ -195,12 +202,13 @@
 
     @include mobile-portrait {
         font-size: 1.5em;
-        top: .5em;
+        top: .4em;
 	}
 
 	@include mobile-landscape {
 	}
 
 	@include tablet-portrait {
+	    top: 30%;
 	}
 }

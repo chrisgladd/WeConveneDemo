@@ -1,0 +1,21 @@
+<div class="AboutView View">
+    <a href="#/home">
+        <div class="HomeLogo LogoDiv">
+            <div class="LogoLeft LogoPiece"></div>
+            <div class="LogoCenter LogoPiece"></div>
+            <div class="LogoRight LogoPiece"></div>
+        </div>
+    </a>
+    <div class="AboutTop">
+        <ul class="AboutUL">
+            <li ng-repeat="item in list" class="AboutLI">
+                <div class="AboutName">
+                    {{item.name}}
+                </div>:
+                <div class="AboutValue">
+                    {{item.value}}
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

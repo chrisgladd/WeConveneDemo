@@ -59,6 +59,10 @@
         padding: 0 0 0 3%;
     }
 
+	@include mobile-landscape {
+	    height: 140%;
+	}
+
     h1 {
         position: relative;
         left: -2%;

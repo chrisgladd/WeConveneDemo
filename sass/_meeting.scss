@@ -155,11 +155,7 @@
         font-size:1.6em;
         font-weight: 900;
         color: #DDD;
-        text-shadow:
-            -1px -1px 0 #333,  
-            1px -1px 0 #333,
-            -1px 1px 0 #333,
-            1px 1px 0 #333;
+        @include outlineText(#333);
     }
 }
 
@@ -214,11 +210,7 @@
         font-size: 1.4em;
         font-weight: 900;
         color: #DDD;
-        text-shadow:
-            -1px -1px 0 #333,  
-            1px -1px 0 #333,
-            -1px 1px 0 #333,
-            1px 1px 0 #333;
+        @include outlineText(#333);
     }
 
     background-color: #822;

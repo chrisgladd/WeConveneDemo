@@ -367,7 +367,7 @@ a {
 /* line 174, ../sass/screen.scss */
 .OpenMenu {
   background-color: #DDD;
-  height: 200px;
+  height: 250px;
   padding: 10px;
   border: 2px solid #29353b;
   -webkit-border-radius: 15px;
@@ -460,27 +460,13 @@ a {
 /**
 * Splash Panel
 */
-/* line 270, ../sass/screen.scss */
+/* line 271, ../sass/screen.scss */
 .SplashLogo {
   width: 90%;
   height: 100%;
 }
-@media (max-width: 320px) {
-  /* line 270, ../sass/screen.scss */
-  .SplashLogo {
-    width: 100%;
-    height: 100%;
-  }
-}
-@media only screen and (min-width: 321px) and (max-width: 480px) {
-  /* line 270, ../sass/screen.scss */
-  .SplashLogo {
-    width: 100%;
-    height: 100%;
-  }
-}
-@media only screen and (min-width: 481px) and (max-width: 1023px) {
-  /* line 270, ../sass/screen.scss */
+@media (max-width: 1025px) {
+  /* line 271, ../sass/screen.scss */
   .SplashLogo {
     width: 100%;
     height: 100%;
@@ -644,6 +630,7 @@ a {
     width: 96%;
     height: 100%;
     margin: 3% 2% 0 2%;
+    float: none;
   }
 }
 @media only screen and (min-width: 481px) and (max-width: 1023px) {
@@ -651,11 +638,12 @@ a {
   .HomeActivityTop {
     width: 96%;
     height: 100%;
-    margin: 0 auto;
+    margin: 0 2%;
+    float: none;
   }
 }
 
-/* line 69, ../sass/_home.scss */
+/* line 71, ../sass/_home.scss */
 .HomeActivityList {
   width: 100%;
   height: 90%;
@@ -665,7 +653,7 @@ a {
   box-sizing: border-box;
 }
 
-/* line 77, ../sass/_home.scss */
+/* line 79, ../sass/_home.scss */
 .HomeActivity {
   width: 100%;
   height: 20%;
@@ -685,7 +673,7 @@ a {
   overflow: hidden;
 }
 
-/* line 94, ../sass/_home.scss */
+/* line 96, ../sass/_home.scss */
 .HomeActivity img {
   width: 15%;
   height: 90%;
@@ -702,92 +690,94 @@ a {
   background-clip: padding-box;
 }
 @media (max-width: 1025px) {
-  /* line 94, ../sass/_home.scss */
+  /* line 96, ../sass/_home.scss */
   .HomeActivity img {
     width: 15%;
     height: auto;
   }
 }
 
-/* line 113, ../sass/_home.scss */
+/* line 115, ../sass/_home.scss */
 .HomeActivity p {
   width: 80%;
   height: 90%;
   float: left;
 }
 @media (max-width: 1025px) {
-  /* line 113, ../sass/_home.scss */
+  /* line 115, ../sass/_home.scss */
   .HomeActivity p {
     width: 100%;
     float: none;
   }
 }
 
-/* line 124, ../sass/_home.scss */
+/* line 126, ../sass/_home.scss */
 .HomeActivity span {
   float: left;
 }
 @media (max-width: 1025px) {
-  /* line 124, ../sass/_home.scss */
+  /* line 126, ../sass/_home.scss */
   .HomeActivity span {
     float: none;
   }
 }
 
-/* line 132, ../sass/_home.scss */
+/* line 134, ../sass/_home.scss */
 .HomeActivityBuffer {
   height: 50px;
   width: 100px;
   position: relative;
 }
 
-/* line 139, ../sass/_home.scss */
+/* line 141, ../sass/_home.scss */
 .HomeBtnDiv {
   width: 42%;
   height: 90%;
   margin: 1%;
+  padding: 6% 0 6% 0;
   float: right;
 }
 @media (max-width: 320px) {
-  /* line 139, ../sass/_home.scss */
+  /* line 141, ../sass/_home.scss */
   .HomeBtnDiv {
     width: 100%;
-    height: 70%;
-    margin: 7% 1% 1% 1%;
+    height: 40%;
     float: none;
+    padding: 5% 0 8% 0;
   }
 }
 @media only screen and (min-width: 321px) and (max-width: 480px) {
-  /* line 139, ../sass/_home.scss */
+  /* line 141, ../sass/_home.scss */
   .HomeBtnDiv {
     width: 100%;
     height: 60%;
   }
 }
 @media only screen and (min-width: 481px) and (max-width: 1023px) {
-  /* line 139, ../sass/_home.scss */
+  /* line 141, ../sass/_home.scss */
   .HomeBtnDiv {
-    width: 100%;
-    height: 70%;
+    width: 80%;
+    height: 40%;
+    margin: 0 10%;
   }
 }
 
-/* line 165, ../sass/_home.scss */
+/* line 172, ../sass/_home.scss */
 .HomeBtn {
   width: 60%;
   height: 15%;
   margin: 7% 20%;
 }
 @media (max-width: 320px) {
-  /* line 165, ../sass/_home.scss */
+  /* line 172, ../sass/_home.scss */
   .HomeBtn {
     width: 80%;
-    height: 17%;
-    margin: 7% 10%;
+    height: 28%;
+    margin: 3% 10%;
   }
 }
 @media only screen and (min-width: 321px) and (max-width: 480px) {
-  /* line 165, ../sass/_home.scss */
+  /* line 172, ../sass/_home.scss */
   .HomeBtn {
     width: 80%;
     height: 20%;
@@ -795,25 +785,31 @@ a {
   }
 }
 @media only screen and (min-width: 481px) and (max-width: 1023px) {
-  /* line 165, ../sass/_home.scss */
+  /* line 172, ../sass/_home.scss */
   .HomeBtn {
     width: 80%;
-    height: 17%;
+    height: 22%;
     margin: 7% 10%;
   }
 }
 
-/* line 190, ../sass/_home.scss */
+/* line 197, ../sass/_home.scss */
 .HomeBtn span {
   position: relative;
   top: 25%;
   font-size: 2.1em;
 }
 @media (max-width: 320px) {
-  /* line 190, ../sass/_home.scss */
+  /* line 197, ../sass/_home.scss */
   .HomeBtn span {
     font-size: 1.5em;
-    top: .5em;
+    top: .4em;
+  }
+}
+@media only screen and (min-width: 481px) and (max-width: 1023px) {
+  /* line 197, ../sass/_home.scss */
+  .HomeBtn span {
+    top: 30%;
   }
 }
 
@@ -992,13 +988,13 @@ a {
   text-shadow: -1px -1px 0 #333333, 1px -1px 0 #333333, -1px 1px 0 #333333, 1px 1px 0 #333333;
 }
 
-/* line 166, ../sass/_meeting.scss */
+/* line 162, ../sass/_meeting.scss */
 .MeetingCalUL {
   width: 100%;
   height: 95%;
 }
 
-/* line 171, ../sass/_meeting.scss */
+/* line 167, ../sass/_meeting.scss */
 .CalDay {
   width: 14.28%;
   height: 19%;
@@ -1012,7 +1008,7 @@ a {
   overflow: hidden;
 }
 
-/* line 185, ../sass/_meeting.scss */
+/* line 181, ../sass/_meeting.scss */
 .CalNumber {
   width: 35%;
   height: 50%;
@@ -1021,14 +1017,14 @@ a {
   right: 3%;
   text-align: right;
 }
-/* line 195, ../sass/_meeting.scss */
+/* line 191, ../sass/_meeting.scss */
 .CalNumber span {
   font-size: 3em;
   font-weight: 900;
   color: #333;
 }
 
-/* line 202, ../sass/_meeting.scss */
+/* line 198, ../sass/_meeting.scss */
 .CalMeets {
   width: 15%;
   height: 20%;
@@ -1045,7 +1041,7 @@ a {
   -o-border-radius: 15px;
   border-radius: 15px;
 }
-/* line 213, ../sass/_meeting.scss */
+/* line 209, ../sass/_meeting.scss */
 .CalMeets span {
   font-size: 1.4em;
   font-weight: 900;
@@ -1053,7 +1049,7 @@ a {
   text-shadow: -1px -1px 0 #333333, 1px -1px 0 #333333, -1px 1px 0 #333333, 1px 1px 0 #333333;
 }
 
-/* line 229, ../sass/_meeting.scss */
+/* line 221, ../sass/_meeting.scss */
 .CalMeeting {
   width: 94%;
   height: 15%;
@@ -1069,7 +1065,7 @@ a {
   -o-border-radius: 10px;
   border-radius: 10px;
 }
-/* line 244, ../sass/_meeting.scss */
+/* line 236, ../sass/_meeting.scss */
 .CalMeeting span {
   color: #222;
 }
@@ -1136,32 +1132,38 @@ a {
     padding: 0 0 0 3%;
   }
 }
-/* line 62, ../sass/_detail.scss */
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+  /* line 49, ../sass/_detail.scss */
+  .DetailsDiv {
+    height: 140%;
+  }
+}
+/* line 66, ../sass/_detail.scss */
 .DetailsDiv h1 {
   position: relative;
   left: -2%;
   padding: 0;
   margin: 0 0 1% 0;
 }
-/* line 70, ../sass/_detail.scss */
+/* line 74, ../sass/_detail.scss */
 .DetailsDiv label {
   padding: 1% 1%;
 }
 
-/* line 75, ../sass/_detail.scss */
+/* line 79, ../sass/_detail.scss */
 #DetailsForm {
   width: 100%;
   height: 100%;
 }
 
-/* line 80, ../sass/_detail.scss */
+/* line 84, ../sass/_detail.scss */
 #DetailsForm label {
   font-family: Helvetica;
   font-size: 1.2em;
   font-weight: 900;
 }
 
-/* line 86, ../sass/_detail.scss */
+/* line 90, ../sass/_detail.scss */
 #DetailsForm input[type='text'] {
   width: 80%;
   float: right;
@@ -1169,13 +1171,13 @@ a {
   margin: 0 5% 0 0;
 }
 @media (max-width: 1025px) {
-  /* line 86, ../sass/_detail.scss */
+  /* line 90, ../sass/_detail.scss */
   #DetailsForm input[type='text'] {
     width: 90%;
   }
 }
 
-/* line 98, ../sass/_detail.scss */
+/* line 102, ../sass/_detail.scss */
 #DetailsForm textarea {
   width: 80%;
   height: 100px;
@@ -1185,18 +1187,18 @@ a {
   border: 2px outset white;
 }
 @media (max-width: 1025px) {
-  /* line 98, ../sass/_detail.scss */
+  /* line 102, ../sass/_detail.scss */
   #DetailsForm textarea {
     width: 90%;
   }
 }
 
-/* line 112, ../sass/_detail.scss */
+/* line 116, ../sass/_detail.scss */
 .DetailDesc {
   height: 135px;
 }
 
-/* line 116, ../sass/_detail.scss */
+/* line 120, ../sass/_detail.scss */
 .SaveBtn {
   width: auto;
   height: auto;
@@ -1388,23 +1390,47 @@ a {
 }
 
 /**
-* Client Detail View Styles
+* About View Style
 */
-/* line 4, ../sass/_clientDetail.scss */
-.ClientDetailView {
-  position: absolute;
-  top: 60px;
+/* line 5, ../sass/_about.scss */
+.AboutView {
+  height: 120%;
 }
 
-/* line 9, ../sass/_clientDetail.scss */
-.ClientDetailLogo {
-  position: absolute;
-  top: -50px;
+/* line 9, ../sass/_about.scss */
+.AboutTop {
+  width: 100%;
+  height: 90%;
+  margin: 5% 0 0 0;
+  text-align: center;
 }
 
-/**
-* Settings View Styles
-*/
-/**
-* Settings View Styles
-*/
+/* line 17, ../sass/_about.scss */
+.AboutUL {
+  width: 100%;
+  height: 100%;
+}
+
+/* line 22, ../sass/_about.scss */
+.AboutLI {
+  width: 100%;
+  clear: both;
+  font-size: 1.4em;
+  color: #111;
+}
+
+/* line 30, ../sass/_about.scss */
+.AboutName {
+  width: 40%;
+  margin: 0 0 1em 0;
+  float: left;
+  text-align: right;
+}
+
+/* line 38, ../sass/_about.scss */
+.AboutValue {
+  width: 55%;
+  margin: 0 0 1em 0;
+  float: right;
+  text-align: left;
+}
