@@ -806,6 +806,12 @@ a {
     top: .4em;
   }
 }
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+  /* line 191, ../sass/_home.scss */
+  .HomeBtn span {
+    top: .4em;
+  }
+}
 @media only screen and (min-width: 481px) and (max-width: 1023px) {
   /* line 191, ../sass/_home.scss */
   .HomeBtn span {
